@@ -17,7 +17,7 @@ model Category {
   id              Int           @id @default(autoincrement())
   name            String        @unique
   description     String?
-  createdAt       DateTime      @deafult(now())
+  createdAt       DateTime      @default(now())
 
 
   products        Product[]
@@ -42,13 +42,14 @@ model Product {
   unity             String
   currentStock      Int               @default(0)
   minimunStock      Int               @default(0)
-  createdAt         DateTime          @default(now)
+  createdAt         DateTime          @default(now())
 
-
+  categoryId        Int
+  supplierId        Int
   
-  category         Categoy            @relation(fields: [categoryId], references:  [id])
-  supplier         Supplier           @relation(fields: [supplierId], references:  [id])
-  movements        StockMovement[]
+  category          Category           @relation(fields: [categoryId], references:  [id])
+  supplier          Supplier           @relation(fields: [supplierId], references:  [id])
+  movements         StockMovement[]
 }
 
 model StockMovement {
@@ -61,7 +62,7 @@ model StockMovement {
   productId        Int
   createdAt        DateTime           @default(now())
 
-  
+
   product   Product  @relation(fields: [productId], references: [id])
 
 }
