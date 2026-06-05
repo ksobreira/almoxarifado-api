@@ -10,4 +10,58 @@ generator client {
 
 datasource db {
   provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id              Int           @id @default(autoincrement())
+  name            String        @unique
+  description     String?
+  createdAt       DateTime      @deafult(now())
+
+
+  products        Product[]
+}
+
+model Supplier {
+  id              Int           @id @default(autoincrement())
+  name            String       
+  cnpj            String        @unique
+  email           String?
+  phone           String?
+  createdAt       DateTime      @default(now())
+
+
+  products       Product[]
+}
+
+model Product {
+  id                Int               @id @default(autoincrement())
+  name              String
+  description       String?
+  unity             String
+  currentStock      Int               @default(0)
+  minimunStock      Int               @default(0)
+  createdAt         DateTime          @default(now)
+
+
+  
+  category         Categoy            @relation(fields: [categoryId], references:  [id])
+  supplier         Supplier           @relation(fields: [supplierId], references:  [id])
+  movements        StockMovement[]
+}
+
+model StockMovement {
+
+  id               Int                @id @default(autoincrement())
+  type             String
+  quantity         Int
+  notes            String?
+
+  productId        Int
+  createdAt        DateTime           @default(now())
+
+  
+  product   Product  @relation(fields: [productId], references: [id])
+
 }
