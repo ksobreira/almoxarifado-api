@@ -1,11 +1,14 @@
-import express from 'express';
+import express from 'express'
+import categoryRoutes from './routes/categoryRoutes.js'
 
-const app = express();
+const app = express()
 
-app.use(express.json());
+app.use(express.json())
 
 app.get('/', (req, res) => {
-  res.json({ message: 'API Almoxarifado funcionando!' });
-});
+  res.json({ message: 'API Almoxarifado funcionando!' })
+})
 
-export default app;
+app.use('/categories', categoryRoutes)
+
+export default app

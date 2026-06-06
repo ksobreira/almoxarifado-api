@@ -20,8 +20,8 @@
   },
   "homepage": "https://github.com/ksobreira/almoxarifado-api#readme",
   "dependencies": {
-    "@prisma/client": "^7.8.0",
+    "@prisma/client": "^6.19.3",
     "express": "^5.2.1",
-    "prisma": "^7.8.0"
+    "prisma": "^6.19.3"
   }
 }
