@@ -1,5 +1,6 @@
 import express from 'express'
 import categoryRoutes from './routes/categoryRoutes.js'
+import supplierRoutes from './routes/supplierRoutes.js'
 
 const app = express()
 
@@ -10,5 +11,6 @@ app.get('/', (req, res) => {
 })
 
 app.use('/categories', categoryRoutes)
+app.use('/suppliers', supplierRoutes)
 
 export default app
