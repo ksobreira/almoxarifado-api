@@ -2,9 +2,11 @@
   "name": "almoxarifado-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node server.js",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -13,9 +15,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/ksobreira/almoxarifado-api/issues"
   },
-  "homepage": "https://github.com/ksobreira/almoxarifado-api#readme"
+  "homepage": "https://github.com/ksobreira/almoxarifado-api#readme",
+  "dependencies": {
+    "@prisma/client": "^6.19.3",
+    "express": "^5.2.1",
+    "prisma": "^6.19.3"
+  }
 }
